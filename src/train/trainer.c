@@ -58,12 +58,12 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
             back_propagation(layers, expected_output, nbr_layers, learning_rate, input);
             if (j % 1000 == 0)
             {
-                fprintf(stderr, "Progression : %d / %d (Score actuel : %d)\r", j, mnist_data->lbl_count, score);
+                fprintf(stdout, "Progression : %d / %d (Score actuel : %d)\r", j, mnist_data->lbl_count, score);
             }
             j++;
         }
 
-        fprintf(stderr, "\r\033[KEpoch %d / %d terminée. Score : %d / %d\n", i + 1, epochs, score, mnist_data->lbl_count);
+        fprintf(stdout, "\r\033[KEpoch %d / %d terminée. Score : %d / %d\n", i + 1, epochs, score, mnist_data->lbl_count);
 
         free(shuffle_index);
         i++;
@@ -109,7 +109,7 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
 //         shuffle_index = fisher_yates_shuffle(mnist_data->lbl_count);
 //         if (!shuffle_index)
 //         {
-//             fprintf(stderr, "Erreur lors du mélange");
+//             fprintf(stdout, "Erreur lors du mélange");
 //             return;
 //         }
 //         j = 0;
@@ -135,12 +135,12 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
 //             fprintf(file, "\n");
 //             if (j % 1000 == 0)
 //             {
-//                 fprintf(stderr, "Progression : %d / %d (Score actuel : %d)\r", j, mnist_data->lbl_count, score);
+//                 fprintf(stdout, "Progression : %d / %d (Score actuel : %d)\r", j, mnist_data->lbl_count, score);
 //             }
 //             j++;
 //         }
 
-//         fprintf(stderr, "Epoch %d / %d terminée. Score : %d / %d\n", i + 1, epochs, score, mnist_data->lbl_count);
+//         fprintf(stdout, "Epoch %d / %d terminée. Score : %d / %d\n", i + 1, epochs, score, mnist_data->lbl_count);
 
 //         free(shuffle_index);
 //         i++;
