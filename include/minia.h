@@ -11,6 +11,9 @@
  #include "stdint.h"
  #include "struct.h"
 
+ #define CLR_RESET "\033[0m"
+ #define CLR_RED "\033[0;31m"
+ #define ERR_LOG(str) {dprintf(2, "%sError on %s:%d\n%s%s\n", CLR_RED, __FILE_NAME__, __LINE__, str, CLR_RESET);}
  extern const int MNIST_SIZE_PIXEL;
  extern const int MNIST_SIZE_INPUT;
 
