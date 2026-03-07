@@ -4,7 +4,7 @@ float calc_density_function(int x, float mu, float sigma)
 {
     if (sigma == 0)
     {
-        fprintf(stderr, "sigma est nulle");
+        ERR_LOG("sigma est nulle");
         return(0);
     }
     float res;
