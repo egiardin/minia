@@ -16,7 +16,7 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
     float loss;
     // float n;
     
-    path = "/Users/enzo.giardina/Desktop/Side project/Minia/loss.txt";
+    path = "./loss.txt";
 
     input = init_matrice_zero(1, 784);
     expected_output = init_matrice_zero(1, 10);
