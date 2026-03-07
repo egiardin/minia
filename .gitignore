@@ -1,0 +1,6 @@
+.DS_STORE
+*.o
+obj/
+.clangd
+minia
+loss.txt
