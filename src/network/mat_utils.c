@@ -8,7 +8,7 @@ mat init_matrice_he(int line, int column)
 
     i = 0;
     j = 0;
-    if(line <= 0 | column <= 0)
+    if(line <= 0 || column <= 0)
     {
         printf("La dimension de la colonne ou de la ligne est 0 => Impossible\n");
         exit(-1);
@@ -52,7 +52,7 @@ mat init_matrice_random(int line, int column)
 
     i = 0;
     j = 0;
-    if(line <= 0 | column <= 0)
+    if(line <= 0 || column <= 0)
     {
         printf("La dimension de la colonne ou de la ligne est 0 => Impossible\n");
         exit(-1);
@@ -97,7 +97,7 @@ mat init_matrice_zero(int line, int column)
 
     i = 0;
     j = 0;
-    if(line <= 0 | column <= 0)
+    if(line <= 0 || column <= 0)
     {
         fprintf(stderr, "La dimension de la colonne ou de la ligne est 0 => Impossible\n");
         exit(-1);
@@ -140,7 +140,7 @@ mat init_matrice_zero_biais(int line, int column)
 
     i = 0;
     j = 0;
-    if(line <= 0 | column <= 0)
+    if(line <= 0 || column <= 0)
     {
         fprintf(stderr, "La dimension de la colonne ou de la ligne est 0 => Impossible\n");
         exit(-1);
