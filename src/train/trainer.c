@@ -63,7 +63,7 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
             j++;
         }
 
-        fprintf(stderr, "Epoch %d / %d terminée. Score : %d / %d\n", i + 1, epochs, score, mnist_data->lbl_count);
+        fprintf(stderr, "\r\033[KEpoch %d / %d terminée. Score : %d / %d\n", i + 1, epochs, score, mnist_data->lbl_count);
 
         free(shuffle_index);
         i++;
