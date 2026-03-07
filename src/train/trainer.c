@@ -36,7 +36,7 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
         shuffle_index = fisher_yates_shuffle(mnist_data->lbl_count);
         if (!shuffle_index)
         {
-            fprintf(stderr, "Erreur lors du mélange");
+            ERR_LOG("Erreur lors du mélange");
             return;
         }
         j = 0;
