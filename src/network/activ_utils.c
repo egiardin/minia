@@ -5,7 +5,7 @@ void relu_tab(mat mat1)
     int i;
 
     i = 0;
-    while(i < mat1.column)
+    while (i < mat1.column)
     {
         mat1.mat[0][i] = floatmax(mat1.mat[0][i]);
         i++;
@@ -42,9 +42,9 @@ void deriv_relu(mat v1)
     int i;
  
     i = 0;
-    while(i < v1.column)
+    while (i < v1.column)
     {
-        if(v1.mat[0][i] > 0)
+        if (v1.mat[0][i] > 0)
         {
             v1.mat[0][i] = 1;
         }
@@ -63,7 +63,7 @@ void softmax(mat output)
 
     max_val = output.mat[0][0];
     i = 0;
-    while(i < output.column)
+    while (i < output.column)
     {
         if (output.mat[0][i] > max_val)
             max_val = output.mat[0][i];
@@ -71,14 +71,14 @@ void softmax(mat output)
     }
     somme = 0;
     i = 0;
-    while(i < output.column)
+    while (i < output.column)
     {
         output.mat[0][i] = expf(output.mat[0][i] - max_val);
         somme = somme + output.mat[0][i];
         i++;
     }
     i = 0;
-    while(i < output.column)
+    while (i < output.column)
     {
         output.mat[0][i] = output.mat[0][i] / somme;
         i++;

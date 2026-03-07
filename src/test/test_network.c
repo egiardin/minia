@@ -294,7 +294,7 @@
 //     nbr_layer_test = 3;
 //     test_expected_output.size = 3;
 //     layer_test = calloc(nbr_layer_test, sizeof(t_layers));
-//     if(!layer_test)
+//     if (!layer_test)
 //     {
 //         printf("Erreur dans l'allocation du layer_test\n");
 //         exit(-1);

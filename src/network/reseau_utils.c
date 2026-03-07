@@ -10,7 +10,7 @@ void print_reseau(t_layers *layers, int nbr_layers, mat expected_output, FILE *o
     fprint_mat_sortie(layers[0].output, output_file);
     fprintf(output_file, "\n---------- Expected_output----------\n");
     fprint_mat_sortie(expected_output, output_file);
-    while(i < nbr_layers)
+    while (i < nbr_layers)
     {
         fprintf(output_file, "\n");
         print_layer(layers, i, output_file);

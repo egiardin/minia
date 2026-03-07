@@ -7,22 +7,22 @@ void forward_propagation(t_layers *layers, int nbr_layers, mat input)
 
     i = 0;
     k = 0;
-    while(k < input.column)
+    while (k < input.column)
     {
         layers[i].output.mat[0][k] = input.mat[0][k];
         k++;
     }
     i++;
-    while(i < nbr_layers)
+    while (i < nbr_layers)
     {
-        if(i == 1)
+        if (i == 1)
             mult_mat(layers[i - 1].output, layers[i].W, layers[i].output);
         else
             mult_mat(layers[i - 1].activation, layers[i].W, layers[i].output);
 
 
         add_mat(layers[i].output, layers[i].biais, layers[i].activation);
-        if(i == (nbr_layers - 1))
+        if (i == (nbr_layers - 1))
             softmax(layers[i].activation);
         else
             relu_tab(layers[i].activation);
@@ -36,7 +36,7 @@ void calc_gradient(t_layers *layers, int nbr_layers, mat input)
     int i;
 
     i = nbr_layers - 1;
-    while(i > 1)
+    while (i > 1)
     {
         mult_mat_transp_a(layers[i - 1].activation, layers[i].delta, layers[i].gradient);
         i--;
@@ -54,7 +54,7 @@ void calc_delta(t_layers *layers, mat expected_output, int nbr_layers)
     i = nbr_layers - 1;
     soust_mat(layers[i].activation, expected_output, layers[i].delta);
     i = nbr_layers - 2;
-    while(i > 0)
+    while (i > 0)
     {
         deriv_temp = init_matrice_zero(1, layers[i].activation.column);
         tmp_mat = init_matrice_zero(layers[i + 1].W.column, layers[i + 1].W.line);    //W1 transposé
@@ -76,7 +76,7 @@ void update_weight(t_layers *layers, float learning_rate, int nbr_layers)
     mat tmp;
 
     i = nbr_layers - 1;
-    while(i > 0)
+    while (i > 0)
     {
         tmp = init_matrice_zero(layers[i].gradient.line, layers[i].gradient.column);
         copy_vect(layers[i].gradient, tmp);

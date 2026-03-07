@@ -21,14 +21,14 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
     input = init_matrice_zero(1, MNIST_SIZE_INPUT);
     expected_output = init_matrice_zero(1, 10);
     file = fopen(path, "w");
-    if(file == NULL)
+    if (file == NULL)
     {
         perror("Erreur d'ouverture");
         return;
    }
     loss = 1;
     i = 0;
-    while(i < epochs)
+    while (i < epochs)
     {
         score = 0;
         printf("--- Epoch %d / %d ---\n", i + 1, epochs);
@@ -40,7 +40,7 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
             return;
         }
         j = 0;
-        while((uint32_t)j < mnist_data->lbl_count)
+        while ((uint32_t)j < mnist_data->lbl_count)
         {
             real_index = shuffle_index[j];
             normalize_img(mnist_data, input, real_index); //à verifier en detail
@@ -94,14 +94,14 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
 //     input = init_matrice_zero(1, MNIST_SIZE_INPUT);
 //     expected_output = init_matrice_zero(1, 10);
 //     file = fopen(path, "w");
-//     if(file == NULL)
+//     if (file == NULL)
 //     {
 //         perror("Erreur d'ouverture");
 //         return;
 //     }
 //     loss = 1;
 //     i = 0;
-//     while(i < epochs)
+//     while (i < epochs)
 //     {
 //         score = 0;
 //         printf("--- Epoch %d / %d ---\n", i + 1, epochs);
@@ -113,7 +113,7 @@ void train(t_layers *layers, t_data *mnist_data, int epochs, float learning_rate
 //             return;
 //         }
 //         j = 0;
-//         while((uint32_t)j < mnist_data->lbl_count)
+//         while ((uint32_t)j < mnist_data->lbl_count)
 //         {
 //             real_index = shuffle_index[j];
 //             normalize_img(mnist_data, input, real_index); //à verifier en detail

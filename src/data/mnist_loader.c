@@ -8,14 +8,14 @@ void initialize_img(t_data *data)
 
     path = "data/train-images.idx3-ubyte";
     file = fopen(path, "rb");
-    if(file == NULL)
+    if (file == NULL)
     {
         perror("Erreur d'ouverture");
         return;
     }
     fread(&data->img_magic, sizeof(uint32_t), 1, file);
     data->img_magic = inverser_uint32(data->img_magic);
-    if(data->img_magic != 2051)
+    if (data->img_magic != 2051)
     {
         printf("Erreur : ce n'est pas un fichier MNIST\n");
         fclose(file);
@@ -29,7 +29,7 @@ void initialize_img(t_data *data)
 
     fread(&data->lines, sizeof(uint32_t), 1, file);
     data->lines = inverser_uint32(data->lines);
-    if( data->lines != 28 || data->columns != 28)
+    if ( data->lines != 28 || data->columns != 28)
     {
         printf("Erreur : Les dimensions ne sont pas les bonnes\n");
         fclose(file);
@@ -37,14 +37,14 @@ void initialize_img(t_data *data)
     }
     data->total_alloc = data->img_count * data->lines * data->columns * sizeof(unsigned char);
     data->all_img = malloc(data->total_alloc);
-    if(!data->all_img)
+    if (!data->all_img)
     {
         perror("Erreur d'initialisation de all_img");
         fclose(file);
         return;
     }
     lus = fread(data->all_img, sizeof(unsigned char), data->total_alloc, file);
-    if(lus != data->total_alloc)
+    if (lus != data->total_alloc)
     {
         printf("Erreur : fichier corrompu\n");
         fclose(file);
@@ -64,14 +64,14 @@ void initialize_labels(t_data *data)
 
     path = "data/train-labels.idx1-ubyte";
     file = fopen(path, "rb");
-    if(file == NULL)
+    if (file == NULL)
     {
         perror("Erreur d'ouverture");
         return;
     }
     fread(&data->lbl_magic, sizeof(uint32_t), 1, file);
     data->lbl_magic = inverser_uint32(data->lbl_magic);
-    if(data->lbl_magic != 2049)
+    if (data->lbl_magic != 2049)
     {
         printf("Erreur : ce n'est pas un fichier MNIST (labels)\n");
         fclose(file);
@@ -82,14 +82,14 @@ void initialize_labels(t_data *data)
 
    
     data->labels = malloc(data->lbl_count * sizeof(unsigned char));
-    if(!data->labels)
+    if (!data->labels)
     {
         perror("Erreur d'initialisation de data->labels");
         fclose(file);
         return;
     }
     lus = fread(data->labels, sizeof(unsigned char), data->lbl_count, file);
-    if(lus != data->lbl_count)
+    if (lus != data->lbl_count)
     {
         printf("Erreur : fichier corrompu\n");
         fclose(file);

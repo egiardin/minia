@@ -18,14 +18,14 @@ int *fisher_yates_shuffle(uint32_t size)
         return (NULL);
 
     i = 0;
-    while(i < (int)size)
+    while (i < (int)size)
     {
         lst[i] = i;
         i++;
     }
 
     i = size - 1; 
-    while(i > 0)
+    while (i > 0)
     {
         j = rand() % (i + 1);
         tmp = lst[i];
@@ -47,9 +47,9 @@ int get_prediction(mat output)
     max_prob = output.mat[0][i];
     max = 0;
     i = 1;
-    while(i < output.column)
+    while (i < output.column)
     {
-        if(max_prob <= output.mat[0][i])
+        if (max_prob <= output.mat[0][i])
         {
             max_prob = output.mat[0][i];
             max = i;

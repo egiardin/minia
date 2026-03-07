@@ -12,7 +12,7 @@ int main()
     nbr_layers = 3;
     layers = (t_layers *)malloc(nbr_layers * sizeof(t_layers));
     data = (t_data *)malloc(sizeof(t_data));
-    if(!layers || !data)
+    if (!layers || !data)
         return(-1);
     initialize_data(data);
     init_reseau(layers, MNIST_SIZE_INPUT, 30, 10);
